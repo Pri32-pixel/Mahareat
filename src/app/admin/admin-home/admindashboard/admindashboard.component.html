@@ -1,0 +1,22 @@
+<nav class="navbar navbar-marketing navbar-expand-lg navbar-dark d-flex flex-wrap">
+  <div class="container-fluid" style="display: flex; justify-content: center;padding-left: 200px;background-color:brown;">
+      <a class="navbar-brand col-8"><img class="img-fluid logo" style="background-color:white;" src="/assets/images/logo-dark-.svg" /></a>
+
+      <ul class="navbar-nav align-items-center rlogo d-flex flex-row-reverse">
+          <li class="nav-item dropdown no-caret mr-2 dropdown-user">
+              <a>
+              </a>
+          </li>
+      </ul>
+  </div>
+</nav>
+<div class="sidebar">
+    <ul>
+      <li><a routerLink="/dashboard">Dashboard</a></li>
+      <li><a routerLink="/admin/cause">Cause List</a></li>
+    </ul>
+  </div>
+  
+<div id="layoutSidenav_content">
+    <router-outlet></router-outlet>
+</div>

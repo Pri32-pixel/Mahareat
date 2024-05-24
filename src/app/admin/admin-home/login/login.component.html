@@ -1,0 +1,35 @@
+<div *ngIf="!isSignedIn" class="login-container">
+  <div class="login-box">
+    <h2 class="admin">Login</h2>
+    <form>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+        matInput
+        placeholder="Email"
+        type="password"
+        required
+        name="email"
+        ngModel
+        #email="ngModel"
+      />
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+        matInput
+        placeholder="Password"
+        type="password"
+        required
+        minlength="8"
+        name="password"
+        ngModel
+        #password="ngModel"
+      />
+      </div>
+      <button class="login-button" (click)="onSignin(email.value, password.value)">Login</button>
+      <div class="forgot"><button class="forgot-button" (click)="forgotPassword()">Forgot Password?</button></div>
+    </form>
+  </div>
+</div>
+<app-admindashboard *ngIf="isSignedIn" (isLogout)="handleLogout()"></app-admindashboard>
