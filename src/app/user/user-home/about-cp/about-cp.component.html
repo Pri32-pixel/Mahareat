@@ -1,0 +1,194 @@
+<main>
+    <header class="page-header page-header-dark">
+        <div class="container-fluid">
+            <div class="row breadcrumb">
+                <ol class="breadcrumb-arrow pull-left col-8 margin-0">
+                    <li><h4>Chairperson and Members</h4></li>
+                </ol>
+
+                <ol class="breadcrumb-arrow pull-right col-4 margin-0">
+                    <li>
+                        <a href="#"><i class="fa fa-fw fa-home"></i></a>
+                    </li>
+                    <li class=""><a href="#">About Us </a></li>
+                    <li class=""><a href="#">Chairperson and Members </a></li>
+                </ol>
+            </div>
+        </div>
+    </header>
+    <!-- Main page content-->
+
+    <div class="container-fluid mt-n10">
+    
+                            <div class="form-group col-md-6">
+                                <label class="small mb-1" for="inputFirstName">Select Option</label>
+                                <select [(ngModel)]="selectedOption" class="form-control col-sm col-md-12 input-dark" name="list" id="list" accesskey="target">
+                                    <!-- <option value="chairperson-members.html" selected>Chairperson </option>
+                                    <option value="members.html">Members </option> -->
+                                    <option [selected]="selectedOption === 'cp'" value="cp">Chairperson </option>
+                                    <option  [selected]="selectedOption === 'dp'" value="dp">Members </option>
+
+                                    <!-- <input type=button value="Go" onclick="goToNewPage()" class="go" /> -->
+                                   
+                                </select>
+                                <!-- <input type=button value="Go" onclick="goToNewPage()" class="go" /> -->
+                                <button (click)="renderCard()" class="go">Go</button>
+                            </div>
+                            
+                            <hr />
+        <div class="row margin-0" *ngIf="showCpCard">
+            <div class="col-md-12 col-lg-12">
+            
+                <div class="card mb-4">
+                    <div class="card-header">Hon’ble Justice Sambhaji Shivaji Shinde 
+</div>
+                    <div class="card-body">
+                     
+                            <div class="form-group ">
+                                <div class="row">
+                                 
+                                        <div class="col-md-2">
+                                            <img class="img-fluid hsize" src="/assets/images/Shri Sambhaji Shivaji Shinde.jpg" />
+                                        </div>
+                                        <div class="col-md-10">
+                                            <h5>Profile</h5>
+                                            <small>
+                                                Tenure: 06/01/2023 to current
+                                            </small>
+                                            <br />
+                                            <div>
+                                                <p>Maharashtra Real Estate Appellate Tribunal for States of Maharashtra and Goa w.e.f   06.01/2023.
+                                                    <p>
+                                                    
+                                                   <h5>Educational Qualifications:</h5> 
+                                                   <p>
+                                                    •  Completed LLB from Dr. Babasaheb Ambedkar Marathwada University in 1986.<br>
+                                                    •   Completed LLM from Pune University in 1988. <br>
+                                                    •   Completed LLM from Warwick University, United Kingdom in 1990.
+                                                   </p> 
+                                                    
+                                                <p *ngIf="showFullParagraph">Prominent Positions held in Govt. of Maharashtra India:<br>
+                                                    •   Enrolled as Advocate on the Roll of Bar Council of Maharashtra & Goa. <br>
+                                                    •   Appointed as an Govt. Pleader & Additional Public Prosecutor of Govt. of Maharashtra in the High Court of Bombay, Bench at Aurangabad.<br>
+                                                    •   Additional Govt. Advocate in the office of the Government Advocate to represent the State of Maharashtra in the Supreme Court of India.<br>
+                                                    •   Represent the State of Maharashtra in the Supreme Court of India in Civil as well as Criminal matters and argued number of cases including Special Leave Petitions, Civil Appeals/ Criminal Appeals, Writ Petitions, Public Interest Litigation and Transfer Petitions etc. till elevation as a Judge of High Court of Bombay. <br>   
+                                                    •   Sworn in  as Judge at Bombay High Court.<br>
+                                                    •   Sworn in as Chief Justice of Rajasthan High Court on 21st June 2022.<br>
+                                                    •   Retired on Chief Justice of Rajasthan on 1st August 2022. <br> 
+                                                    •   Maharashtra Real Estate Appellate Tribunal for States of Maharashtra and Goa w.e.f   06.01/2023.;</p>
+                                                <button class="btn" style="height:40px;width:120px;;background-color:brown;color:#fff" (click)="toggleParagraph()">{{ showFullParagraph ? 'Know Less' : 'Know More' }}</button>
+                                                </div>
+                                        </div>
+                                   
+                                    
+                                </div>
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+    
+        
+      </div>
+
+      <div class="members" *ngIf="showDpCard">
+        <div class="col-md-12 col-lg-12">
+        
+            <div class="card mb-4">
+                <div class="card-header">Hon’ble Shriram Jagtap </div>
+                <div class="card-body">
+                 
+                        <div class="form-group ">
+                            <div class="row">
+                             
+                                    <div class="col-md-2">
+                                        <img class="img-fluid hsize" src="/assets/images/Justice Shriram R. Jagtap.jpg" />
+                                    </div>
+                                    <div class="col-md-10">
+                                        <h5>Profile</h5>
+                                        <small>
+                                        </small>
+                                        <br />
+                                        <div>
+                                            <p>Maharashtra Real Estate Appellate Tribunal for States of Maharashtra and Goa ( w.e.f.).</p> 
+                                            <h5>Educational Qualifications: </h5>
+                                            <p>•   B.Com , LLB (Marathwada University) <br>
+                                            
+                                            Prominent Positions held in Govt. of Maharashtra India: <br>
+                                            •   Joined Judiciary as Civil Judge Junior Division and Judicial Magistrate First Class <br>
+                                            •   Promoted as Civil Judge Senior Division worked at Kandhar (Nanded)  <br>
+                                            •   Worked as Metropolitan Magistrate, Mumbai and School Tribunal at Nashik.<br>
+                                            •   Promoted as District Judge and worked at City Civil Court, Mumbai, Rajgurunagar (Pune), Nanded and Ahmednagar. <br>
+                                            •   Appointed as Principal District Judge at Sindhudurg.<br>
+                                            •   Worked as Principal District Judge at Nanded <br>
+                                        </p>                                  
+                                            <button class="btn" style="height:40px;width:120px;;background-color:brown;color:#fff" (click)="openPopup1()">know more</button>
+                                        </div>
+                                        
+                                    </div>
+                               
+                                
+                            </div>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+    
+      <div class="col-md-12 col-lg-12">
+        
+            <div class="card mb-4">
+                <div class="card-header">Hon’ble Dr. K. Shivaji  </div>
+                <div class="card-body">
+                 
+                        <div class="form-group ">
+                            <div class="row">
+                             
+                                    <div class="col-md-2">
+                                        <img class="img-fluid hsize" src="/assets/images/Dr.Kshatrapati Shivaji, IAS (Retd.).jpg" />
+                                    </div>
+                                    <div class="col-md-10">
+                                        <h5>Profile</h5>
+                                        <small>
+                                        </small>
+                                        <br />
+                                      <p>  Hon’ble Member, (Tech/Administrative), 
+Maharashtra Real Estate Appellate Tribunal for States of Maharashtra and Goa ( w.e.f.). 
+  </p>
+<h5>Educational Qualifications: </h5>
+<p>
+•    B.Sc. Engineering (Civil) <br>
+•    MTech from I.I.T. Delhi, in Building Science & Construction Management.<br>
+•    M.A. In Economics, <br>
+•    PGDM from MDI, Gurgaon with Electives in International Finance. <br>
+•    Ph.D., in the field of Management, Finance. <br>
+•   Online non-credit courses offered through Coursera:  <br>
+               Financial Planning for Young Adults - University of Illinois at Urbana-Champaign –Jan 2021 <br>
+               Personal & Family Financial Planning by University of Florida <br>
+            </p>         
+
+<div>
+    <button class="btn" style="height:40px;width:120px;;background-color:brown;color:#fff" (click)="openPopup2()">know more</button>
+</div>
+
+
+                                    </div>
+                               
+                                
+                            </div>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    
+     
+    
+  </div>
+    </div>
+
+</main>

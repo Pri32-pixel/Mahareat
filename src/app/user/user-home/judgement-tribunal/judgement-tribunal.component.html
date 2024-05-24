@@ -1,0 +1,119 @@
+<main>
+    <header class="page-header page-header-dark">
+        <div class="container-fluid">
+            <div class="row breadcrumb">
+                <ol class="breadcrumb-arrow pull-left col-8 margin-0">
+                    <li>
+                        <h4>Judgments and Orders of the Tribunal
+
+
+                        </h4>
+                    </li>
+                </ol>
+
+                <ol class="breadcrumb-arrow pull-right col-4 margin-0">
+                    <li>
+                        <a href="#"><i class="fa fa-fw fa-home"></i></a>
+                    </li>
+                    <li class=""><a href="#">About Us </a></li>
+                    <li class=""><a href="#">Judgments and Orders of the Tribunal</a></li>
+                </ol>
+            </div>
+        </div>
+    </header>
+    <!-- Main page content-->
+
+    <div class="container-fluid mt-n10">
+        <div class="row margin-0">
+            <div class="col-md-12 col-lg-12">
+                <div class="card mb-4">
+                    <div class="card-header">Judgments and Orders of the Tribunal
+
+
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+
+                            <hr />
+                            <form [formGroup]="judgementListForm">
+                            <div class="form-group col-md-12">
+                                <div class="row">
+                                    <div class="form-group col-md-3">
+                                        <label class="small mb-1" >Search Here</label>
+                                        <input class="form-control" type="text" placeholder="Search Here" formControlName="searchInput" [(ngModel)]="subjectSearch">
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label class="small mb-1" >From Date</label>
+                                        <input class="form-control" type="date" formControlName="fromDate">
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label class="small mb-1" >To Date</label>
+                                        <input class="form-control" type="date" formControlName="toDate" >
+                                    </div>
+
+                                    <div class="form-group col-md-3">
+                                        <label class="small mb-1" ></label>
+                                        <button class="btn btn-icon btn-ot"
+                                            style="margin-right:10px;
+                                            color: white;" (click)="getJudgementBySubject()"
+                                            >
+                                            Search
+                                    </button>
+                                        <button class="btn btn-icon btn-ot"
+                                        style="margin-right:10px;
+                                        color: white;"  
+                                        (click)="resetForm()"  
+                                        href="#">
+                                            Reset
+                                        </button>
+                                    </div>
+
+                                    <hr>
+                                    <div class="col-md-12">
+                                        <div class="panel panel-default">
+                                            <div class="panel-body">
+                                                <div class="table-container">
+                                                    <table id="example" class="table table-striped table-bordered"
+                                                        style="width: 100%;">
+                                                        <thead>
+                                                            <tr>
+                                                                <th style="width: 50px">#</th>
+                                                                <th>Court Room No./Bench Type</th>
+                                                                <th>Judgement/Order/Roznama</th>
+                                                                <th>Judgement/Order Date</th>
+                                                                <th>Appeal No.</th>
+                                                                <th>Appellant Name</th>
+                                                                <th>Respondent Name</th>
+                                                                <th>Date of Uploading</th>
+                                                                <th>File</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                             <tr *ngFor="let e of judgementData">
+                                                                <td>{{e.judgment_order_id}}</td>
+                                                                <td>{{e.court_room_bench_no}}</td>
+                                                                <td>{{e.judgment_order_type}}</td>
+                                                                <td>{{e.judgment_order_date|date}}</td>
+                                                                <td>{{e.appeal_no}}</td>
+                                                                <td>{{e.appellant_name}}</td>
+                                                                <td>{{e.respondent_name}}</td>
+                                                                <td>{{e.doc_upload_date|date}}</td>
+                                                                <td><button style="background-color:brown;color:aliceblue" type="button"  (click)="downloadPdf('assets/pdf/Judgements/134203_Order.pdf')" class="btn">Download</button></td>
+                                                             </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

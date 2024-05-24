@@ -1,0 +1,155 @@
+<main>
+    <header class="page-header page-header-dark">
+        <div class="container-fluid">
+            <div class="row breadcrumb">
+                <ol class="breadcrumb-arrow pull-left col-8 margin-0">
+                    <li>
+                        <h4>Former Chairpersons and Members
+                        </h4>
+                    </li>
+                </ol>
+
+                <ol class="breadcrumb-arrow pull-right col-4 margin-0">
+                    <li>
+                        <a href="#"><i class="fa fa-fw fa-home"></i></a>
+                    </li>
+                    <li class=""><a href="#">About Us </a></li>
+                    <li class=""><a href="#">Former Chairpersons and Members
+                        </a></li>
+                </ol>
+            </div>
+        </div>
+    </header>
+    <!-- Main page content-->
+
+    <div class="container-fluid mt-n10">
+
+
+        <div class="form-group col-md-6">
+            <label class="small mb-1" for="inputFirstName">Select Option</label>
+            <select [(ngModel)]="selectedOption" class="form-control col-sm col-md-12 input-dark" name="list" id="list" accesskey="target">
+
+                <!-- <option value="former-chairpersons.html" selected>Former Chairpersons </option>
+
+                <option value="former-members.html">Former Members</option> -->
+
+                <option [selected]="selectedOption === 'cp'" value="cp">Former Chairpersons </option>
+                <option  [selected]="selectedOption === 'dp'" value="dp">Former Members </option>
+                <!-- <input type=button value="Go" onclick="goToNewPage()" class="go" /> -->
+            </select>
+            <button (click)="renderCard()" class="go">Go</button>
+        </div>
+        <hr />
+        <div class="row margin-0" *ngIf="showCpCard">
+                <div class="col-md-12 col-lg-12">
+                    <div class="card mb-4">
+                        <div class="card-header">Former Chairpersons and Members
+</div>
+                        <div class="card-body">
+                            <div class="row">
+                              
+                                <div class="form-group col-md-12">
+                                    <div class="row">
+                                  
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="table-container">
+            
+<table class="table table-striped custab">
+<thead>
+
+<tr>
+    <th></th>
+    <th>Chairperson’s Name</th>
+    <th>Tenure</th>
+    <th class="text-center">Profile</th>
+</tr>
+</thead>
+    <tr>
+        <td><img class="img-fluid psize" src="/assets/images/Justice Ku. Indira  K. Jain.jpg" /></td>
+        <td>Hon’ble Justice Indira Jain </td>
+        <td>26/12/2018 - 19/12/2022</td>
+        <td class="button"> <button class="btn" style="height:40px;width:120px;;background-color:brown;color:aliceblue" (click)="openPopup()">know more</button></td>
+    </tr>
+</table>
+
+                </div>
+            </div>
+        </div>
+    
+    </div>
+                     </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+        
+    
+        
+      </div>
+
+      <div class="row margin-0"  *ngIf="showDpCard">
+            <div class="col-md-12 col-lg-12">
+                <div class="card mb-4">
+                    <div class="card-header">Former Chairpersons and Members
+</div>
+                    <div class="card-body">
+                        <div class="row">
+                          
+                            <div class="form-group col-md-12">
+                                <div class="row">
+                              
+<div class="col-md-12">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="table-container">
+        
+<table class="table table-striped custab">
+<thead>
+
+<tr>
+<th></th>
+<th>Members’ Name
+</th>
+<th>Tenure</th>
+<th class="text-center">Profile</th>
+</tr>
+</thead>
+<tr>
+    <td><img class="img-fluid psize" src="/assets/images/Mr. S. S. Sandhu, IAS (Retd.).jpg" /></td>
+    <td>Hon’ble S.S. Sandhu </td>
+    <td>26/12/2018 - 07/07/2023</td>
+    <td class="button"> <button class="btn" style="height:40px;width:120px;;background-color:brown;color:aliceblue" (click)="openPopup1()">know more</button></td>
+</tr>
+<tr>
+    <td><img class="img-fluid psize" src="assets/images/user.svg"></td>
+    <td>Hon’ble Sumant Kolhe </td>
+    <td>26/12/2018 - 04/08/2022</td>
+    <td class="button"> <button class="btn" style="height:40px;width:120px;;background-color:brown;color:aliceblue" (click)="openPopup2()">know more</button></td>
+</tr>
+
+</table>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+    
+    
+     
+    
+  </div>
+    </div>
+</main>
