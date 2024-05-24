@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Welcome to MahaREAT</title>
+        <link href="css/style.css" rel="stylesheet" />
+        <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
+        <link href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" rel="stylesheet" crossorigin="anonymous" />
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+
+        <link rel="icon" type="image/x-icon" href="assets/img/favicon.png" />
+        <script data-search-pseudo-elements defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
+
+        <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script type="text/javascript">
+            window.alert = function () {};
+            var defaultCSS = document.getElementById("bootstrap-css");
+            function changeCSS(css) {
+                if (css)
+                    $("head > link")
+                        .filter(":first")
+                        .replaceWith('<link rel="stylesheet" href="' + css + '" type="text/css" />');
+                else $("head > link").filter(":first").replaceWith(defaultCSS);
+            }
+            $(document).ready(function () {
+                var iframe_height = parseInt($("html").height());
+                window.parent.postMessage();
+            });
+        </script>
+
+        <style type="text/css">
+            .panel.with-nav-tabs .panel-heading {
+                padding: 5px 5px 0 5px;
+            }
+            .panel.with-nav-tabs .nav-tabs {
+                border-bottom: none;
+            }
+            .panel.with-nav-tabs .nav-justified {
+                margin-bottom: -1px;
+            }
+            /********************************************************************/
+            /*** PANEL DEFAULT ***/
+            .with-nav-tabs.panel-default .nav-tabs > li > a,
+            .with-nav-tabs.panel-default .nav-tabs > li > a:hover,
+            .with-nav-tabs.panel-default .nav-tabs > li > a:focus {
+                color: #777;
+            }
+            .with-nav-tabs.panel-default .nav-tabs > .open > a,
+            .with-nav-tabs.panel-default .nav-tabs > .open > a:hover,
+            .with-nav-tabs.panel-default .nav-tabs > .open > a:focus,
+            .with-nav-tabs.panel-default .nav-tabs > li > a:hover,
+            .with-nav-tabs.panel-default .nav-tabs > li > a:focus {
+                color: #777;
+                background-color: #ddd;
+                border-color: transparent;
+            }
+            .with-nav-tabs.panel-default .nav-tabs > li.active > a,
+            .with-nav-tabs.panel-default .nav-tabs > li.active > a:hover,
+            .with-nav-tabs.panel-default .nav-tabs > li.active > a:focus {
+                color: #555;
+                background-color: #fff;
+                border-color: #ddd;
+                border-bottom-color: transparent;
+            }
+            .with-nav-tabs.panel-default .nav-tabs > li.dropdown .dropdown-menu {
+                background-color: #f5f5f5;
+                border-color: #ddd;
+            }
+            .with-nav-tabs.panel-default .nav-tabs > li.dropdown .dropdown-menu > li > a {
+                color: #777;
+            }
+            .with-nav-tabs.panel-default .nav-tabs > li.dropdown .dropdown-menu > li > a:hover,
+            .with-nav-tabs.panel-default .nav-tabs > li.dropdown .dropdown-menu > li > a:focus {
+                background-color: #ddd;
+            }
+            .with-nav-tabs.panel-default .nav-tabs > li.dropdown .dropdown-menu > .active > a,
+            .with-nav-tabs.panel-default .nav-tabs > li.dropdown .dropdown-menu > .active > a:hover,
+            .with-nav-tabs.panel-default .nav-tabs > li.dropdown .dropdown-menu > .active > a:focus {
+                color: #fff;
+                background-color: #555;
+            }
+        </style>
+    </head>
+    <body class="nav-fixed">
+        <div class="topStrip">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-10 col-md-4 col-lg-4 col-xl-4">
+                        <ul>
+                            <li>
+                                <a href="/sitemap" data-drupal-link-system-path="sitemap">Sitemap</a>
+                            </li>
+                            <li>
+                                <a href="/faq" data-drupal-link-system-path="faq">FAQs</a>
+                            </li>
+                            <li>
+                                <a href="/feedback-form" data-drupal-link-system-path="node/add/feedback_form">Feedback</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-2 col-md-8 col-lg-8 col-xl-8 rightTopStrip d-flex justify-content-end">
+                        <ul class="smallFont">
+                            <li><a tabindex="1" href="#content">Skip to Content</a></li>
+                            <li><a href="#">Screen Reader Access</a></li>
+                            <li class="fontResize">
+                                <div id="accessControl" class="textResizeWrapper">
+                                    <input type="button" name="font_small" value="A-" id="font_normal" title="Decrease Font Size" class="fontScaler large" />
+                                    <input type="button" name="font_normal" value="A" id="font_large" title="Normal Font Size" class="fontScaler normal" />
+                                    <input type="button" name="font_large" value="A+" id="font_larger" title="Increase Font Size" class="fontScaler largest" />
+                                </div>
+                            </li>
+                            <li class="d-none d-md-inline-block aL"><a class="bg-light text-dark border-2" title="High Contrast" href="#">A</a></li>
+                            <li class="d-none d-md-inline-block aD"><a class="bg-dark text-light border-2" title="Low Contrast" href="#">A</a></li>
+                            <li class="language">
+                                <div id="block-dropdownlanguage">
+                                    <div class="dropbutton-wrapper dropbutton-multiple" data-once="dropbutton">
+                                        <div class="dropbutton-widget">
+                                            <ul class="dropdown-language-item dropbutton">
+                                              
+                                                <li class="nav-item dropdown">
+                                                    <a
+                                                        class="btn btn-icon btn-transparent-dark dropdown-toggle"
+                                                        id="navbarDropdownUserImage"
+                                                        href="javascript:void(0);"
+                                                        role="button"
+                                                        data-toggle="dropdown"
+                                                        aria-haspopup="true"
+                                                        aria-expanded="false"
+                                                    >
+                                                        English
+                                                    </a>
+
+                                                    <div class="dropdown-menu dropdown-menu-right border-0 shadow animated--fade-in-up" aria-labelledby="navbarDropdownUserImage">
+                                                        <h6 class="dropdown-header d-flex align-items-center">
+                                                            <div class="dropdown-user-details">
+                                                                <div class="dropdown-user-details-name">मराठी</div>
+                                                            </div>
+                                                        </h6>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <nav class="navbar navbar-marketing navbar-expand-lg navbar-dark d-flex flex-wrap">
+            <div class="container-fluid">
+                <a class="navbar-brand col-8" href="index-dashbaord.html"><img class="img-fluid logo" src="images/logo-dark-.svg" /></a>
+
+                <form class="form-inline d-none d-md-block">
+                    <div class="input-group input-group-joined input-group-solid">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 24 24">
+                                    <path
+                                        d="M 13.261719 14.867188 L 15.742188 17.347656 C 15.363281 18.070313 15.324219 18.789063 15.722656 19.1875 L 20.25 23.714844 C 20.820313 24.285156 22.0625 23.972656 23.015625 23.015625 C 23.972656 22.058594 24.285156 20.820313 23.714844 20.25 L 19.191406 15.722656 C 18.789063 15.324219 18.070313 15.363281 17.347656 15.738281 L 14.867188 13.261719 Z M 8.5 0 C 3.804688 0 0 3.804688 0 8.5 C 0 13.195313 3.804688 17 8.5 17 C 13.195313 17 17 13.195313 17 8.5 C 17 3.804688 13.195313 0 8.5 0 Z M 8.5 15 C 4.910156 15 2 12.089844 2 8.5 C 2 4.910156 4.910156 2 8.5 2 C 12.089844 2 15 4.910156 15 8.5 C 15 12.089844 12.089844 15 8.5 15 Z"
+                                    ></path>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+                <ul class="navbar-nav align-items-center rlogo d-flex flex-row-reverse">
+                    <li class="nav-item dropdown no-caret mr-2 dropdown-user">
+                        <a
+                            class="btn btn-icon btn-transparent-dark dropdown-toggle"
+                            id="navbarDropdownUserImage"
+                            href="javascript:void(0);"
+                            role="button"
+                            data-toggle="dropdown"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                            style="padding: 5px 10px !important;     border: 1px solid #f6a013;
+    color: #f6a013!important;
+    font-size: 14px;
+    font-weight: 600;
+    background-color: #72120a!important;"
+                        >
+                            User Login
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="container-fluid" style="background-color: #72120a!important;">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link" href="index-dashbaord.html">Home </a></li>
+                        <li class="nav-item dropdown no-caret">
+                            <a class="nav-link dropdown-toggle active" id="navbarDropdownDocs" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                About Us
+                                <svg
+                                    class="svg-inline--fa fa-chevron-right fa-w-10 dropdown-arrow"
+                                    aria-hidden="true"
+                                    focusable="false"
+                                    data-prefix="fas"
+                                    data-icon="chevron-right"
+                                    role="img"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 320 512"
+                                    data-fa-i2svg=""
+                                >
+                                    <path
+                                        fill="currentColor"
+                                        d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"
+                                    ></path>
+                                </svg>
+                                <!-- <i class="fas fa-chevron-right dropdown-arrow"></i> -->
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-left animated--fade-in-up" aria-labelledby="navbarDropdownDocs">
+                                <a class="dropdown-item" href="about-us.html">
+                                    <div class="icon-stack bg-primary-soft text-primary mr-2">
+                                        <svg
+                                            class="svg-inline--fa fa-book-open fa-w-18"
+                                            aria-hidden="true"
+                                            focusable="false"
+                                            data-prefix="fas"
+                                            data-icon="book-open"
+                                            role="img"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 576 512"
+                                            data-fa-i2svg=""
+                                        >
+                                            <path
+                                                fill="currentColor"
+                                                d="M542.22 32.05c-54.8 3.11-163.72 14.43-230.96 55.59-4.64 2.84-7.27 7.89-7.27 13.17v363.87c0 11.55 12.63 18.85 23.28 13.49 69.18-34.82 169.23-44.32 218.7-46.92 16.89-.89 30.02-14.43 30.02-30.66V62.75c.01-17.71-15.35-31.74-33.77-30.7zM264.73 87.64C197.5 46.48 88.58 35.17 33.78 32.05 15.36 31.01 0 45.04 0 62.75V400.6c0 16.24 13.13 29.78 30.02 30.66 49.49 2.6 149.59 12.11 218.77 46.95 10.62 5.35 23.21-1.94 23.21-13.46V100.63c0-5.29-2.62-10.14-7.27-12.99z"
+                                            ></path>
+                                        </svg>
+                                        <!-- <i class="fas fa-book-open"></i> -->
+                                    </div>
+                                    <div>
+About MahaREAT
+
+                                    </div>
+                                </a>
+                                <div class="dropdown-divider m-0"></div>
+                                <a class="dropdown-item" href="chairperson-members.html">
+                                    <div class="icon-stack bg-primary-soft text-primary mr-2">
+                                        <svg
+                                            class="svg-inline--fa fa-code fa-w-20"
+                                            aria-hidden="true"
+                                            focusable="false"
+                                            data-prefix="fas"
+                                            data-icon="code"
+                                            role="img"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 640 512"
+                                            data-fa-i2svg=""
+                                        >
+                                            <path
+                                                fill="currentColor"
+                                                d="M278.9 511.5l-61-17.7c-6.4-1.8-10-8.5-8.2-14.9L346.2 8.7c1.8-6.4 8.5-10 14.9-8.2l61 17.7c6.4 1.8 10 8.5 8.2 14.9L293.8 503.3c-1.9 6.4-8.5 10.1-14.9 8.2zm-114-112.2l43.5-46.4c4.6-4.9 4.3-12.7-.8-17.2L117 256l90.6-79.7c5.1-4.5 5.5-12.3.8-17.2l-43.5-46.4c-4.5-4.8-12.1-5.1-17-.5L3.8 247.2c-5.1 4.7-5.1 12.8 0 17.5l144.1 135.1c4.9 4.6 12.5 4.4 17-.5zm327.2.6l144.1-135.1c5.1-4.7 5.1-12.8 0-17.5L492.1 112.1c-4.8-4.5-12.4-4.3-17 .5L431.6 159c-4.6 4.9-4.3 12.7.8 17.2L523 256l-90.6 79.7c-5.1 4.5-5.5 12.3-.8 17.2l43.5 46.4c4.5 4.9 12.1 5.1 17 .6z"
+                                            ></path>
+                                        </svg>
+                                        <!-- <i class="fas fa-code"></i> -->
+                                    </div>
+                                    <div>
+                                     
+Chairperson and Members
+
+                                    </div>
+                                </a>
+                                <div class="dropdown-divider m-0"></div>
+                                <a class="dropdown-item" href="former-chairpersons.html">
+                                    <div class="icon-stack bg-primary-soft text-primary mr-2">
+                                        <svg
+                                            class="svg-inline--fa fa-file fa-w-12"
+                                            aria-hidden="true"
+                                            focusable="false"
+                                            data-prefix="fas"
+                                            data-icon="file"
+                                            role="img"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 384 512"
+                                            data-fa-i2svg=""
+                                        >
+                                            <path
+                                                fill="currentColor"
+                                                d="M224 136V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zm160-14.1v6.1H256V0h6.1c6.4 0 12.5 2.5 17 7l97.9 98c4.5 4.5 7 10.6 7 16.9z"
+                                            ></path>
+                                        </svg>
+                                        <!-- <i class="fas fa-file"></i> -->
+                                    </div>
+                                    <div>
+                                     
+Former Chairperson and Members
+
+                                    </div>
+                                </a>
+                           <div class="dropdown-divider m-0"></div>
+                                <a class="dropdown-item" href="key-officials-profile.html">
+                                    <div class="icon-stack bg-primary-soft text-primary mr-2">
+                                        <svg
+                                            class="svg-inline--fa fa-file fa-w-12"
+                                            aria-hidden="true"
+                                            focusable="false"
+                                            data-prefix="fas"
+                                            data-icon="file"
+                                            role="img"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 384 512"
+                                            data-fa-i2svg=""
+                                        >
+                                            <path
+                                                fill="currentColor"
+                                                d="M224 136V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zm160-14.1v6.1H256V0h6.1c6.4 0 12.5 2.5 17 7l97.9 98c4.5 4.5 7 10.6 7 16.9z"
+                                            ></path>
+                                        </svg>
+                                        <!-- <i class="fas fa-file"></i> -->
+                                    </div>
+                                    <div>
+                                    
+Key Officials
+
+
+                                    </div>
+                                </a>
+								
+								  <div class="dropdown-divider m-0"></div>
+                                <a class="dropdown-item" href="organizational-chart.html">
+                                    <div class="icon-stack bg-primary-soft text-primary mr-2">
+                                        <svg
+                                            class="svg-inline--fa fa-file fa-w-12"
+                                            aria-hidden="true"
+                                            focusable="false"
+                                            data-prefix="fas"
+                                            data-icon="file"
+                                            role="img"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 384 512"
+                                            data-fa-i2svg=""
+                                        >
+                                            <path
+                                                fill="currentColor"
+                                                d="M224 136V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zm160-14.1v6.1H256V0h6.1c6.4 0 12.5 2.5 17 7l97.9 98c4.5 4.5 7 10.6 7 16.9z"
+                                            ></path>
+                                        </svg>
+                                        <!-- <i class="fas fa-file"></i> -->
+                                    </div>
+                                    <div>
+                                  
+Organizational Chart
+
+
+                                    </div>
+                                </a>
+
+
+						 </div>
+                        </li>
+
+                          <li class="nav-item dropdown no-caret">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdownDocs" href="resources.html" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Resources
+                                <svg
+                                    class="svg-inline--fa fa-chevron-right fa-w-10 dropdown-arrow"
+                                    aria-hidden="true"
+                                    focusable="false"
+                                    data-prefix="fas"
+                                    data-icon="chevron-right"
+                                    role="img"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 320 512"
+                                    data-fa-i2svg=""
+                                >
+                                    <path
+                                        fill="currentColor"
+                                        d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"
+                                    ></path>
+                                </svg>
+                                <!-- <i class="fas fa-chevron-right dropdown-arrow"></i> -->
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-left animated--fade-in-up" aria-labelledby="navbarDropdownDocs">
+                                <a class="dropdown-item" href="acts.html">
+                                    <div class="icon-stack bg-primary-soft text-primary mr-4">
+                                        <svg
+                                            class="svg-inline--fa fa-book-open fa-w-18"
+                                            aria-hidden="true"
+                                            focusable="false"
+                                            data-prefix="fas"
+                                            data-icon="book-open"
+                                            role="img"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 576 512"
+                                            data-fa-i2svg=""
+                                        >
+                                            <path
+                                                fill="currentColor"
+                                                d="M542.22 32.05c-54.8 3.11-163.72 14.43-230.96 55.59-4.64 2.84-7.27 7.89-7.27 13.17v363.87c0 11.55 12.63 18.85 23.28 13.49 69.18-34.82 169.23-44.32 218.7-46.92 16.89-.89 30.02-14.43 30.02-30.66V62.75c.01-17.71-15.35-31.74-33.77-30.7zM264.73 87.64C197.5 46.48 88.58 35.17 33.78 32.05 15.36 31.01 0 45.04 0 62.75V400.6c0 16.24 13.13 29.78 30.02 30.66 49.49 2.6 149.59 12.11 218.77 46.95 10.62 5.35 23.21-1.94 23.21-13.46V100.63c0-5.29-2.62-10.14-7.27-12.99z"
+                                            ></path>
+                                        </svg>
+                                        <!-- <i class="fas fa-book-open"></i> -->
+                                    </div>
+                                    <div>
+                                      Acts
+                                    </div>
+                                </a>
+                                <div class="dropdown-divider m-0"></div>
+                                <a class="dropdown-item" href="rules.html">
+                                    <div class="icon-stack bg-primary-soft text-primary mr-4">
+                                        <svg
+                                            class="svg-inline--fa fa-code fa-w-20"
+                                            aria-hidden="true"
+                                            focusable="false"
+                                            data-prefix="fas"
+                                            data-icon="code"
+                                            role="img"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 640 512"
+                                            data-fa-i2svg=""
+                                        >
+                                            <path
+                                                fill="currentColor"
+                                                d="M278.9 511.5l-61-17.7c-6.4-1.8-10-8.5-8.2-14.9L346.2 8.7c1.8-6.4 8.5-10 14.9-8.2l61 17.7c6.4 1.8 10 8.5 8.2 14.9L293.8 503.3c-1.9 6.4-8.5 10.1-14.9 8.2zm-114-112.2l43.5-46.4c4.6-4.9 4.3-12.7-.8-17.2L117 256l90.6-79.7c5.1-4.5 5.5-12.3.8-17.2l-43.5-46.4c-4.5-4.8-12.1-5.1-17-.5L3.8 247.2c-5.1 4.7-5.1 12.8 0 17.5l144.1 135.1c4.9 4.6 12.5 4.4 17-.5zm327.2.6l144.1-135.1c5.1-4.7 5.1-12.8 0-17.5L492.1 112.1c-4.8-4.5-12.4-4.3-17 .5L431.6 159c-4.6 4.9-4.3 12.7.8 17.2L523 256l-90.6 79.7c-5.1 4.5-5.5 12.3-.8 17.2l43.5 46.4c4.5 4.9 12.1 5.1 17 .6z"
+                                            ></path>
+                                        </svg>
+                                        <!-- <i class="fas fa-code"></i> -->
+                                    </div>
+                                    <div>
+                                      
+Rules
+                                    </div>
+                                </a>
+                                <div class="dropdown-divider m-0"></div>
+                                <a class="dropdown-item " href="regulations.html">
+                                    <div class="icon-stack bg-primary-soft text-primary mr-4">
+                                        <svg
+                                            class="svg-inline--fa fa-file fa-w-12"
+                                            aria-hidden="true"
+                                            focusable="false"
+                                            data-prefix="fas"
+                                            data-icon="file"
+                                            role="img"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 384 512"
+                                            data-fa-i2svg=""
+                                        >
+                                            <path
+                                                fill="currentColor"
+                                                d="M224 136V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zm160-14.1v6.1H256V0h6.1c6.4 0 12.5 2.5 17 7l97.9 98c4.5 4.5 7 10.6 7 16.9z"
+                                            ></path>
+                                        </svg>
+                                        <!-- <i class="fas fa-file"></i> -->
+                                    </div>
+                                    <div>
+                                      
+Regulations
+
+                                    </div>
+                                </a>
+								   <div class="dropdown-divider m-0"></div>
+                                <a class="dropdown-item" href="#">
+                                    <div class="icon-stack bg-primary-soft text-primary mr-4">
+                                        <svg
+                                            class="svg-inline--fa fa-file fa-w-12"
+                                            aria-hidden="true"
+                                            focusable="false"
+                                            data-prefix="fas"
+                                            data-icon="file"
+                                            role="img"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 384 512"
+                                            data-fa-i2svg=""
+                                        >
+                                            <path
+                                                fill="currentColor"
+                                                d="M224 136V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zm160-14.1v6.1H256V0h6.1c6.4 0 12.5 2.5 17 7l97.9 98c4.5 4.5 7 10.6 7 16.9z"
+                                            ></path>
+                                        </svg>
+                                        <!-- <i class="fas fa-file"></i> -->
+                                    </div>
+                                    <div>
+                                    
+FAQs
+
+                                    </div>
+                                </a>
+                            </div>
+                        </li>
+						
+						  <li class="nav-item dropdown no-caret">
+                            <a class="nav-link " id="navbarDropdownDocs" href="cause-list.html" role="button" >
+                                Cause List
+
+                              
+                            </a>
+							</li>
+
+                         <li class="nav-item dropdown no-caret">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdownDocs" href="judgements-orders.html" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                               Judgements and Orders
+                                <svg
+                                    class="svg-inline--fa fa-chevron-right fa-w-10 dropdown-arrow"
+                                    aria-hidden="true"
+                                    focusable="false"
+                                    data-prefix="fas"
+                                    data-icon="chevron-right"
+                                    role="img"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 320 512"
+                                    data-fa-i2svg=""
+                                >
+                                    <path
+                                        fill="currentColor"
+                                        d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"
+                                    ></path>
+                                </svg>
+                                <!-- <i class="fas fa-chevron-right dropdown-arrow"></i> -->
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-left animated--fade-in-up" aria-labelledby="navbarDropdownDocs">
+                                <a class="dropdown-item" href="judgements-orders-tribunal.html">
+                                    <div class="icon-stack bg-primary-soft text-primary mr-4">
+                                        <svg
+                                            class="svg-inline--fa fa-book-open fa-w-18"
+                                            aria-hidden="true"
+                                            focusable="false"
+                                            data-prefix="fas"
+                                            data-icon="book-open"
+                                            role="img"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 576 512"
+                                            data-fa-i2svg=""
+                                        >
+                                            <path
+                                                fill="currentColor"
+                                                d="M542.22 32.05c-54.8 3.11-163.72 14.43-230.96 55.59-4.64 2.84-7.27 7.89-7.27 13.17v363.87c0 11.55 12.63 18.85 23.28 13.49 69.18-34.82 169.23-44.32 218.7-46.92 16.89-.89 30.02-14.43 30.02-30.66V62.75c.01-17.71-15.35-31.74-33.77-30.7zM264.73 87.64C197.5 46.48 88.58 35.17 33.78 32.05 15.36 31.01 0 45.04 0 62.75V400.6c0 16.24 13.13 29.78 30.02 30.66 49.49 2.6 149.59 12.11 218.77 46.95 10.62 5.35 23.21-1.94 23.21-13.46V100.63c0-5.29-2.62-10.14-7.27-12.99z"
+                                            ></path>
+                                        </svg>
+                                        <!-- <i class="fas fa-book-open"></i> -->
+                                    </div>
+                                    <div>
+                                     Judgements and Orders of the Tribunal
+                                    </div>
+                                </a>
+                                <div class="dropdown-divider m-0"></div>
+                                <a class="dropdown-item" href="key-judgments.html">
+                                    <div class="icon-stack bg-primary-soft text-primary mr-4">
+                                        <svg
+                                            class="svg-inline--fa fa-code fa-w-20"
+                                            aria-hidden="true"
+                                            focusable="false"
+                                            data-prefix="fas"
+                                            data-icon="code"
+                                            role="img"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 640 512"
+                                            data-fa-i2svg=""
+                                        >
+                                            <path
+                                                fill="currentColor"
+                                                d="M278.9 511.5l-61-17.7c-6.4-1.8-10-8.5-8.2-14.9L346.2 8.7c1.8-6.4 8.5-10 14.9-8.2l61 17.7c6.4 1.8 10 8.5 8.2 14.9L293.8 503.3c-1.9 6.4-8.5 10.1-14.9 8.2zm-114-112.2l43.5-46.4c4.6-4.9 4.3-12.7-.8-17.2L117 256l90.6-79.7c5.1-4.5 5.5-12.3.8-17.2l-43.5-46.4c-4.5-4.8-12.1-5.1-17-.5L3.8 247.2c-5.1 4.7-5.1 12.8 0 17.5l144.1 135.1c4.9 4.6 12.5 4.4 17-.5zm327.2.6l144.1-135.1c5.1-4.7 5.1-12.8 0-17.5L492.1 112.1c-4.8-4.5-12.4-4.3-17 .5L431.6 159c-4.6 4.9-4.3 12.7.8 17.2L523 256l-90.6 79.7c-5.1 4.5-5.5 12.3-.8 17.2l43.5 46.4c4.5 4.9 12.1 5.1 17 .6z"
+                                            ></path>
+                                        </svg>
+                                        <!-- <i class="fas fa-code"></i> -->
+                                    </div>
+                                    <div>
+                                      
+Key Judgments / Orders of Tribunal
+                                    </div>
+                                </a>
+                                <div class="dropdown-divider m-0"></div>
+                                <a class="dropdown-item " href="notable-judgements.html">
+                                    <div class="icon-stack bg-primary-soft text-primary mr-4">
+                                        <svg
+                                            class="svg-inline--fa fa-file fa-w-12"
+                                            aria-hidden="true"
+                                            focusable="false"
+                                            data-prefix="fas"
+                                            data-icon="file"
+                                            role="img"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 384 512"
+                                            data-fa-i2svg=""
+                                        >
+                                            <path
+                                                fill="currentColor"
+                                                d="M224 136V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zm160-14.1v6.1H256V0h6.1c6.4 0 12.5 2.5 17 7l97.9 98c4.5 4.5 7 10.6 7 16.9z"
+                                            ></path>
+                                        </svg>
+                                        <!-- <i class="fas fa-file"></i> -->
+                                    </div>
+                                    <div>
+
+Notable Judgements of Other Forums
+                                    </div>
+                                </a>
+								</div>
+                        </li>
+                      
+                        <li class="nav-item dropdown no-caret">
+                            <a class="nav-link dropdown-toggle" href="circular-notice.html" role="button" aria-haspopup="true" aria-expanded="false">
+                              Circular Notice and Office Order
+
+                                <!-- <i class="fas fa-chevron-right dropdown-arrow"></i> -->
+                            </a>
+                        </li>
+                        <li class="nav-item dropdown no-caret">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdownDocs" href="e-filing.html" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                               E-Filing
+
+                                <svg
+                                    class="svg-inline--fa fa-chevron-right fa-w-10 dropdown-arrow"
+                                    aria-hidden="true"
+                                    focusable="false"
+                                    data-prefix="fas"
+                                    data-icon="chevron-right"
+                                    role="img"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 320 512"
+                                    data-fa-i2svg=""
+                                >
+                                    <path
+                                        fill="currentColor"
+                                        d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"
+                                    ></path>
+                                </svg>
+                              <!--   <i class="fas fa-chevron-right dropdown-arrow"></i> -->
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right animated--fade-in-up" aria-labelledby="navbarDropdownDocs">
+                       
+                          
+								<div class="dropdown-divider m-0"></div>
+                                <a class="dropdown-item" href="file-appeal.html">
+                                    <div class="icon-stack bg-primary-soft text-primary mr-4">
+                                        <svg
+                                            class="svg-inline--fa fa-code fa-w-20"
+                                            aria-hidden="true"
+                                            focusable="false"
+                                            data-prefix="fas"
+                                            data-icon="code"
+                                            role="img"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 640 512"
+                                            data-fa-i2svg=""
+                                        >
+                                            <path
+                                                fill="currentColor"
+                                                d="M278.9 511.5l-61-17.7c-6.4-1.8-10-8.5-8.2-14.9L346.2 8.7c1.8-6.4 8.5-10 14.9-8.2l61 17.7c6.4 1.8 10 8.5 8.2 14.9L293.8 503.3c-1.9 6.4-8.5 10.1-14.9 8.2zm-114-112.2l43.5-46.4c4.6-4.9 4.3-12.7-.8-17.2L117 256l90.6-79.7c5.1-4.5 5.5-12.3.8-17.2l-43.5-46.4c-4.5-4.8-12.1-5.1-17-.5L3.8 247.2c-5.1 4.7-5.1 12.8 0 17.5l144.1 135.1c4.9 4.6 12.5 4.4 17-.5zm327.2.6l144.1-135.1c5.1-4.7 5.1-12.8 0-17.5L492.1 112.1c-4.8-4.5-12.4-4.3-17 .5L431.6 159c-4.6 4.9-4.3 12.7.8 17.2L523 256l-90.6 79.7c-5.1 4.5-5.5 12.3-.8 17.2l43.5 46.4c4.5 4.9 12.1 5.1 17 .6z"
+                                            ></path>
+                                        </svg>
+                                        <!-- <i class="fas fa-code"></i> -->
+                                    </div>
+                                    <div>
+                                      File Appeal / Application
+                                    </div>
+                                </a>
+                               
+<div class="dropdown-divider m-0"></div>
+                                <a class="dropdown-item" href="e-filing-manual.html">
+                                    <div class="icon-stack bg-primary-soft text-primary mr-4">
+                                        <svg
+                                            class="svg-inline--fa fa-code fa-w-20"
+                                            aria-hidden="true"
+                                            focusable="false"
+                                            data-prefix="fas"
+                                            data-icon="code"
+                                            role="img"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 640 512"
+                                            data-fa-i2svg=""
+                                        >
+                                            <path
+                                                fill="currentColor"
+                                                d="M278.9 511.5l-61-17.7c-6.4-1.8-10-8.5-8.2-14.9L346.2 8.7c1.8-6.4 8.5-10 14.9-8.2l61 17.7c6.4 1.8 10 8.5 8.2 14.9L293.8 503.3c-1.9 6.4-8.5 10.1-14.9 8.2zm-114-112.2l43.5-46.4c4.6-4.9 4.3-12.7-.8-17.2L117 256l90.6-79.7c5.1-4.5 5.5-12.3.8-17.2l-43.5-46.4c-4.5-4.8-12.1-5.1-17-.5L3.8 247.2c-5.1 4.7-5.1 12.8 0 17.5l144.1 135.1c4.9 4.6 12.5 4.4 17-.5zm327.2.6l144.1-135.1c5.1-4.7 5.1-12.8 0-17.5L492.1 112.1c-4.8-4.5-12.4-4.3-17 .5L431.6 159c-4.6 4.9-4.3 12.7.8 17.2L523 256l-90.6 79.7c-5.1 4.5-5.5 12.3-.8 17.2l43.5 46.4c4.5 4.9 12.1 5.1 17 .6z"
+                                            ></path>
+                                        </svg>
+                                        <!-- <i class="fas fa-code"></i> -->
+                                    </div>
+                                    <div>
+                                      E-Filing Manual
+                                    </div>
+                                </a>
+
+
+						  </div>
+                        </li>
+                   
+				   </ul>
+                </div>
+            </div>
+        </nav>
+      
+	  <div id="layoutSidenav_content">
+            <main>
+                <header class="page-header page-header-dark">
+                   <div class="container-fluid">
+<div class="row breadcrumb ">
+<ol class="breadcrumb-arrow pull-left col-8 margin-0">
+<li><h4>About MahaREAT</h4></li>
+
+</ol>
+
+
+
+<ol class="breadcrumb-arrow pull-right col-4 margin-0">
+<li><a href="#"><i class="fa fa-fw fa-home"></i></a></li>
+<li class=""><a href="#">About Us
+</a></li>
+<li class=""><a href="#">About MahaREAT
+</a></li>
+</ol>
+</div>
+</div>
+                </header>
+                <!-- Main page content-->
+               
+                <div class="container-fluid mt-n10">
+                    <div class="row margin-0">
+                        <div>
+                            <div class="card mb-4">
+                                <div class="card-header">Introduction
+
+</div>
+                                <div class="card-body">
+                                    <ul style="margin: 0; list-style:none; padding: 0 20px;">
+                                        <li>
+                                           Maharashtra Real Estate Appellate Tribunal, Fort Mumbai office started on 24.12.2018. The Government of Maharashtra has established the Maharashtra Real Estate Appellate Tribunal Office to appeal against the decision, direction or order given by the Maharashtra Real Estate Regulatory Authority (Maharera) if the complainant is not satisfied with that decision, direction or order.
+                                        </li>
+                                      
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div >
+                            <div class="card mb-4">
+                                <div class="card-header">Objectives of Real Estate (Regulation & Development) Act, 2016
+</div>
+                                <div class="card-body">
+                                    <ul style="margin: 0; padding: 0 20px;">
+                                        <li>
+                                         To file an appeal against the decision, direction or order given by the office of Maharashtra Real Estate Regulatory Authority (MAHRERA) in respect of registered or unregistered construction projects if the complainant person or organization is not satisfied with that decision, direction or order.
+
+                                        </li>
+										<li>
+										To verify the appeals filed in the Maharashtra Real Estate  Appellate Tribunal and get due justice to the complainant person or organization at the earliest.
+										</li>
+										<li>
+										Providing certified copy of judgments, directions or orders passed through the office of Maharashtra Real Estate Appellate Tribunal.
+										</li>
+										<li>
+										To help the person or organization who comes to the Maharashtra Real Estate Appellate Tribunal office for justice by providing proper guidance to get justice.
+										</li>
+                                      
+                                    </ul>
+                                </div>
+                            </div>
+                      
+<hr>
+
+
+
+                            <div class="card mb-4">
+                                <div class="card-header">Jurisdiction</div>
+                                <div class="card-body">
+                                    <ul style="margin: 0; list-style:none; padding: 0 20px;">
+                                        <li>The Maharashtra Real Estate Appellate Tribunal Office includes Maharashtra State, the Union Territories of Diu Daman and Dadra Nagar Haveli and Also, from the year 2021, appeals related to the Real Estate Regulatory Authority of Goa State come under this office. 
+
+
+                                        </li>
+                                      
+                                    </ul>
+                                </div>
+                            </div>
+                       
+
+
+
+					  </div>
+						
+						
+						
+                    </div>
+                </div>
+            </main>
+            <footer class="footer mt-auto footer-light">
+                <div class="col-md-12 col-lg-12">
+                    <div class="row">
+                        <div class="col-md-6 col-lg-6">
+                        
+                                <div class="row" style="padding:30px;">
+								
+                                    <a class="navbar-brand col-md-2 col-lg-2" href="index-dashbaord.html"><img class="img-fluid logo" src="images/logo-single.svg" /></a>
+                              
+                                
+                                    <p class="col-md-9 col-lg-9"><b>Address : Maharashtra Real Estate Appellate Tribunal,<br> One Forbes, Forbes St, Kala Ghoda, Fort,<br> Mumbai, Maharashtra 400001</b></p>
+                               
+
+                               </div>
+                          
+                        </div>
+
+                        <div class="col-md-4 col-lg-4" style="    border-left: 1px solid #e5e5e5;
+    border-right: 1px solid #e5e5e5;">
+                            <ul class="footer-ul">
+                                <li>
+                                    <p><b style="font-size: 17px;">Important Links</b></p>
+
+                                    <p><a href="#">Bombay High Court </a></p>
+                                    <p><a href="#">Government of Maharashtra </a></p>
+                                    <p><a href="#">Maharashtra Real Estate Regulatory Authority</a></p>
+                                    <p><a href="#">Supreme Court of India</a></p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-2 col-lg-2">
+                            <ul class="footer-ul">
+                                <li>
+                                    <p><b style="font-size: 17px;">Contact us</b></p>
+
+                                    <p>
+                                        <a href="#">
+                                            Phone No : 1234567890
+                                        </a>
+                                    </p>
+                                    <p><a href="#"> Email : abc@info.com</a></p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12 col-lg-12 lw-ft">
+                    <div class="row">
+                        <div class="col-md-12 small text-center">Copyright © 2023 Maharashtra Real Estate Regulatory Authority. All rights reserved.</div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+        <script>
+            var triggerTabList = [].slice.call(document.querySelectorAll("#myTab a"));
+            triggerTabList.forEach(function (triggerEl) {
+                var tabTrigger = new bootstrap.Tab(triggerEl);
+
+                triggerEl.addEventListener("click", function (event) {
+                    event.preventDefault();
+                    tabTrigger.show();
+                });
+            });
+        </script>
+    </body>
+</html>
